@@ -8,6 +8,7 @@ parser = ArgumentParser()
 parser.add_argument("--instance", type=str, default="instances/example.json")
 parser.add_argument("--objective", type=str, choices=["OF1", "OF2"], default="OF1")
 
+
 def simple_ip(instance, objective="OF1"):
 
     model = gp.Model("SimpleIP")
@@ -104,6 +105,21 @@ def simple_ip(instance, objective="OF1"):
             model.addConstr(
                 quicksum(z[i, s, l1, l2] for i in interpreters if (i, s, l1, l2) in z) <= 1,
                 name=f"unique_translator_{s}_{l1}_{l2}"
+            )
+
+    # === Additional Constraints ===
+    # 8: An interpreter can only be assigned to a maximum of 15 sessions
+    for i in interpreters:
+        model.addConstr(quicksum(x[i, s] for s in sessions) <= 15, name=f"max_sessions_per_interpreter_{i}")
+
+    # 9: An interpreter can only be assigned to a maximum of 3 consecutive blocks
+    for i in interpreters:
+        for k in range(len(blocks) - 3):
+            group = blocks[k:k + 4]
+            sessions_in_group = sum((instance.sessions_per_block[b] for b in group), [])
+            model.addConstr(
+                quicksum(x[i, s] for s in sessions_in_group) <= 3,
+                name=f"max_3_consecutive_blocks_{i}_from_{group[0]}"
             )
 
     # === Objective Function ===
