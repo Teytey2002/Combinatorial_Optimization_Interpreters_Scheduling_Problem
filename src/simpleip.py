@@ -18,21 +18,26 @@ def simple_ip(instance, objective="OF1"):
     x = model.addVars(interpreters, sessions, vtype=GRB.BINARY, name="x")
 
     # y_i,l1,l2 = 1 if the pair (l1, l2) is covered in session s, 0 otherwise
-    y = {}
-    for s in sessions:
-        languages = instance.languages_per_session[s]
-        language_pairs = list(itertools.combinations(languages, 2))
-        for l1, l2 in language_pairs:
-            y[s, l1, l2] = model.addVar(vtype=GRB.BINARY, name=f"y_{s}_{l1}_{l2}")
+    y = model.addVars(
+        [
+            (s, l1, l2)
+            for s in sessions
+            for l1, l2 in itertools.combinations(instance.languages_per_session[s], 2)
+        ],
+        vtype=GRB.BINARY, name="y"
+    )
 
     # z_i,s,l1,l2 = 1 if interpreter i covers the pair (l1, l2) in session s, 0 otherwise
-    z = {}
-    for i in interpreters:
-        for s in sessions:
-            session_languages = set(instance.languages_per_session[s])
-            languages = itertools.combinations(session_languages, 2)
-            for l1, l2 in languages:
-                z[i, s, l1, l2] = model.addVar(vtype=GRB.BINARY, name=f"z_{i}_{s}_{l1}_{l2}")
+    z = model.addVars(
+        [
+            (i, s, l1, l2)
+            for i in interpreters
+            for s in sessions
+            for l1, l2 in itertools.combinations(instance.languages_per_interpreter[i], 2)
+            if l1 in instance.languages_per_session[s] and l2 in instance.languages_per_session[s]
+        ],
+        vtype=GRB.BINARY, name="z"
+    )
 
     # t[s] = 1 if all pairs are covered in session s, 0 otherwise
     t = model.addVars(sessions, vtype=GRB.BINARY, name="t")
@@ -53,7 +58,6 @@ def simple_ip(instance, objective="OF1"):
         for l1, l2 in itertools.combinations(languages, 2):
             eligible_interpreters = [i for i in interpreters if l1 in instance.languages_per_interpreter[i] and
                                      l2 in instance.languages_per_interpreter[i]]
-            print(f"Eligible interpreters for session {s} and languages ({l1}, {l2}): {eligible_interpreters}")
             model.addConstr(
                 quicksum(x[i, s] for i in eligible_interpreters) >= y[s, l1, l2],
                 name=f"cover_pair_{s}_{l1}_{l2}"
@@ -67,9 +71,6 @@ def simple_ip(instance, objective="OF1"):
                 name=f"one_translation_per_session_{i}_{s}"
             )
 
-    model.update()
-    print(*model.getConstrs(), sep="\n")
-    exit()
 
     # 4: If an interpreter is not assigned to a session, they cannot be responsible for any language
     # pair in that session
@@ -91,8 +92,9 @@ def simple_ip(instance, objective="OF1"):
         languages = instance.languages_per_session[s]
         language_pairs = list(itertools.combinations(languages, 2))
         for l1, l2 in language_pairs:
-            model.addConstr(t[s] <= y[s, l1, l2], name=f"t_impl_y_{s}")
+            model.addConstr(t[s] <= y[s, l1, l2], name=f"t_impl_y_{s}_{l1}_{l2}")
 
+    # 7: Each language pair in a session may be interpreted by at most one interpreter. (logical constraint)
     for s in sessions:
         languages = instance.languages_per_session[s]
         for l1, l2 in itertools.combinations(languages, 2):
