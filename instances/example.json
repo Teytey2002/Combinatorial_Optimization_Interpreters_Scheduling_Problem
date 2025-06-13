@@ -1,0 +1,70 @@
+{
+    "Blocks": [
+        "Block 001"
+    ],
+    "Sessions": [
+        "Session 001",
+        "Session 002",
+        "Session 003"
+    ],
+    "Sessions_b": {
+        "Block 001": [
+            "Session 001",
+            "Session 002",
+            "Session 003"
+        ]
+    },
+    "Interpreters": [
+        "Interpreter 001",
+        "Interpreter 002",
+        "Interpreter 003",
+        "Interpreter 004",
+        "Interpreter 005"
+    ],
+    "Languages": [
+        "Dutch",
+        "English",
+        "French",
+        "German",
+        "Italian",
+        "Spanish"
+    ],
+    "Languages_s": {
+        "Session 001": [
+            "English",
+            "French",
+            "Spanish"
+        ],
+        "Session 002": [
+            "German",
+            "Spanish"
+        ],
+        "Session 003": [
+            "English",
+            "Spanish"
+        ]
+    },
+    "Languages_i": {
+        "Interpreter 001": [
+            "English",
+            "Spanish"
+        ],
+        "Interpreter 002": [
+            "French",
+            "Spanish"
+        ],
+        "Interpreter 003": [
+            "Dutch",
+            "German"
+        ],
+        "Interpreter 004": [
+            "Dutch",
+            "Spanish"
+        ],
+        "Interpreter 005": [
+            "French",
+            "Italian",
+            "Spanish"
+        ]
+    }
+}

@@ -1,0 +1,1066 @@
+{
+    "Blocks": [
+        "Block 001",
+        "Block 002",
+        "Block 003",
+        "Block 004",
+        "Block 005",
+        "Block 006",
+        "Block 007",
+        "Block 008",
+        "Block 009",
+        "Block 010",
+        "Block 011",
+        "Block 012",
+        "Block 013",
+        "Block 014",
+        "Block 015",
+        "Block 016",
+        "Block 017",
+        "Block 018",
+        "Block 019",
+        "Block 020",
+        "Block 021",
+        "Block 022",
+        "Block 023",
+        "Block 024",
+        "Block 025",
+        "Block 026",
+        "Block 027",
+        "Block 028",
+        "Block 029",
+        "Block 030",
+        "Block 031",
+        "Block 032",
+        "Block 033",
+        "Block 034",
+        "Block 035",
+        "Block 036",
+        "Block 037",
+        "Block 038",
+        "Block 039",
+        "Block 040"
+    ],
+    "Sessions": [
+        "Session 001",
+        "Session 002",
+        "Session 003",
+        "Session 004",
+        "Session 005",
+        "Session 006",
+        "Session 007",
+        "Session 008",
+        "Session 009",
+        "Session 010",
+        "Session 011",
+        "Session 012",
+        "Session 013",
+        "Session 014",
+        "Session 015",
+        "Session 016",
+        "Session 017",
+        "Session 018",
+        "Session 019",
+        "Session 020",
+        "Session 021",
+        "Session 022",
+        "Session 023",
+        "Session 024",
+        "Session 025",
+        "Session 026",
+        "Session 027",
+        "Session 028",
+        "Session 029",
+        "Session 030",
+        "Session 031",
+        "Session 032",
+        "Session 033",
+        "Session 034",
+        "Session 035",
+        "Session 036",
+        "Session 037",
+        "Session 038",
+        "Session 039",
+        "Session 040"
+    ],
+    "Sessions_b": {
+        "Block 001": [
+            "Session 001"
+        ],
+        "Block 002": [
+            "Session 002"
+        ],
+        "Block 003": [
+            "Session 003"
+        ],
+        "Block 004": [
+            "Session 004"
+        ],
+        "Block 005": [
+            "Session 005"
+        ],
+        "Block 006": [
+            "Session 006"
+        ],
+        "Block 007": [
+            "Session 007"
+        ],
+        "Block 008": [
+            "Session 008"
+        ],
+        "Block 009": [
+            "Session 009"
+        ],
+        "Block 010": [
+            "Session 010"
+        ],
+        "Block 011": [
+            "Session 011"
+        ],
+        "Block 012": [
+            "Session 012"
+        ],
+        "Block 013": [
+            "Session 013"
+        ],
+        "Block 014": [
+            "Session 014"
+        ],
+        "Block 015": [
+            "Session 015"
+        ],
+        "Block 016": [
+            "Session 016"
+        ],
+        "Block 017": [
+            "Session 017"
+        ],
+        "Block 018": [
+            "Session 018"
+        ],
+        "Block 019": [
+            "Session 019"
+        ],
+        "Block 020": [
+            "Session 020"
+        ],
+        "Block 021": [
+            "Session 021"
+        ],
+        "Block 022": [
+            "Session 022"
+        ],
+        "Block 023": [
+            "Session 023"
+        ],
+        "Block 024": [
+            "Session 024"
+        ],
+        "Block 025": [
+            "Session 025"
+        ],
+        "Block 026": [
+            "Session 026"
+        ],
+        "Block 027": [
+            "Session 027"
+        ],
+        "Block 028": [
+            "Session 028"
+        ],
+        "Block 029": [
+            "Session 029"
+        ],
+        "Block 030": [
+            "Session 030"
+        ],
+        "Block 031": [
+            "Session 031"
+        ],
+        "Block 032": [
+            "Session 032"
+        ],
+        "Block 033": [
+            "Session 033"
+        ],
+        "Block 034": [
+            "Session 034"
+        ],
+        "Block 035": [
+            "Session 035"
+        ],
+        "Block 036": [
+            "Session 036"
+        ],
+        "Block 037": [
+            "Session 037"
+        ],
+        "Block 038": [
+            "Session 038"
+        ],
+        "Block 039": [
+            "Session 039"
+        ],
+        "Block 040": [
+            "Session 040"
+        ]
+    },
+    "Interpreters": [
+        "Interpreter 001",
+        "Interpreter 002",
+        "Interpreter 003",
+        "Interpreter 004",
+        "Interpreter 005",
+        "Interpreter 006",
+        "Interpreter 007",
+        "Interpreter 008",
+        "Interpreter 009",
+        "Interpreter 010",
+        "Interpreter 011",
+        "Interpreter 012",
+        "Interpreter 013",
+        "Interpreter 014",
+        "Interpreter 015",
+        "Interpreter 016",
+        "Interpreter 017",
+        "Interpreter 018",
+        "Interpreter 019",
+        "Interpreter 020",
+        "Interpreter 021",
+        "Interpreter 022",
+        "Interpreter 023",
+        "Interpreter 024",
+        "Interpreter 025",
+        "Interpreter 026",
+        "Interpreter 027",
+        "Interpreter 028",
+        "Interpreter 029",
+        "Interpreter 030",
+        "Interpreter 031",
+        "Interpreter 032",
+        "Interpreter 033",
+        "Interpreter 034",
+        "Interpreter 035",
+        "Interpreter 036",
+        "Interpreter 037",
+        "Interpreter 038",
+        "Interpreter 039",
+        "Interpreter 040"
+    ],
+    "Languages": [
+        "Bulgarian",
+        "Croatian",
+        "Czech",
+        "Danish",
+        "Dutch",
+        "English",
+        "Estonian",
+        "Finnish",
+        "French",
+        "German",
+        "Greek",
+        "Hungarian",
+        "Irish",
+        "Italian",
+        "Latvian",
+        "Lithuanian",
+        "Maltese",
+        "Polish",
+        "Portuguese",
+        "Romanian",
+        "Slovak",
+        "Slovenian",
+        "Spanish",
+        "Swedish"
+    ],
+    "Languages_s": {
+        "Session 001": [
+            "Bulgarian",
+            "Czech",
+            "Danish",
+            "Dutch",
+            "English",
+            "Estonian",
+            "Finnish",
+            "French",
+            "German",
+            "Greek",
+            "Hungarian",
+            "Irish",
+            "Italian",
+            "Latvian",
+            "Lithuanian",
+            "Maltese",
+            "Polish",
+            "Portuguese",
+            "Romanian",
+            "Slovenian",
+            "Spanish",
+            "Swedish"
+        ],
+        "Session 002": [
+            "Bulgarian",
+            "Croatian",
+            "Czech",
+            "Danish",
+            "English",
+            "Estonian",
+            "French",
+            "German",
+            "Greek",
+            "Hungarian",
+            "Irish",
+            "Lithuanian",
+            "Maltese",
+            "Polish",
+            "Portuguese",
+            "Romanian",
+            "Slovak",
+            "Slovenian",
+            "Spanish",
+            "Swedish"
+        ],
+        "Session 003": [
+            "Bulgarian",
+            "Croatian",
+            "Danish",
+            "Dutch",
+            "Finnish",
+            "French",
+            "German",
+            "Irish",
+            "Italian",
+            "Latvian",
+            "Lithuanian",
+            "Maltese",
+            "Romanian",
+            "Slovak",
+            "Spanish",
+            "Swedish"
+        ],
+        "Session 004": [
+            "English",
+            "Estonian",
+            "Finnish",
+            "German",
+            "Greek",
+            "Maltese"
+        ],
+        "Session 005": [
+            "Danish",
+            "Dutch",
+            "Greek",
+            "Irish",
+            "Italian",
+            "Latvian",
+            "Portuguese",
+            "Romanian",
+            "Slovak",
+            "Spanish"
+        ],
+        "Session 006": [
+            "Bulgarian",
+            "Czech",
+            "Danish",
+            "English",
+            "Estonian",
+            "German",
+            "Greek",
+            "Hungarian",
+            "Irish",
+            "Latvian",
+            "Portuguese",
+            "Romanian",
+            "Slovak"
+        ],
+        "Session 007": [
+            "Croatian",
+            "Danish",
+            "Dutch",
+            "English",
+            "Estonian",
+            "Finnish",
+            "French",
+            "German",
+            "Lithuanian",
+            "Portuguese",
+            "Romanian",
+            "Slovak",
+            "Slovenian",
+            "Swedish"
+        ],
+        "Session 008": [
+            "Bulgarian",
+            "Croatian",
+            "Czech",
+            "Danish",
+            "Dutch",
+            "English",
+            "Estonian",
+            "Finnish",
+            "German",
+            "Greek",
+            "Hungarian",
+            "Irish",
+            "Italian",
+            "Lithuanian",
+            "Maltese",
+            "Polish",
+            "Portuguese",
+            "Romanian",
+            "Slovak",
+            "Slovenian",
+            "Spanish",
+            "Swedish"
+        ],
+        "Session 009": [
+            "Danish",
+            "English",
+            "Estonian",
+            "French",
+            "Hungarian",
+            "Italian",
+            "Lithuanian",
+            "Maltese",
+            "Portuguese",
+            "Romanian",
+            "Spanish"
+        ],
+        "Session 010": [
+            "Dutch",
+            "English",
+            "Greek",
+            "Hungarian",
+            "Lithuanian",
+            "Polish",
+            "Slovak"
+        ],
+        "Session 011": [
+            "Bulgarian",
+            "Czech",
+            "Dutch",
+            "English",
+            "Finnish",
+            "Greek",
+            "Italian",
+            "Lithuanian",
+            "Polish",
+            "Slovak",
+            "Spanish",
+            "Swedish"
+        ],
+        "Session 012": [
+            "Dutch",
+            "Finnish",
+            "Irish",
+            "Italian",
+            "Latvian",
+            "Polish",
+            "Portuguese",
+            "Romanian"
+        ],
+        "Session 013": [
+            "Bulgarian",
+            "Maltese",
+            "Polish",
+            "Slovak"
+        ],
+        "Session 014": [
+            "Czech",
+            "Danish",
+            "Dutch",
+            "Estonian",
+            "Italian",
+            "Polish",
+            "Spanish",
+            "Swedish"
+        ],
+        "Session 015": [
+            "Bulgarian",
+            "Croatian",
+            "Czech",
+            "Finnish",
+            "French",
+            "Greek",
+            "Italian",
+            "Latvian",
+            "Maltese",
+            "Polish",
+            "Slovak",
+            "Spanish"
+        ],
+        "Session 016": [
+            "Bulgarian",
+            "Croatian",
+            "Czech",
+            "Danish",
+            "Dutch",
+            "English",
+            "Finnish",
+            "French",
+            "Greek",
+            "Hungarian",
+            "Irish",
+            "Italian",
+            "Latvian",
+            "Lithuanian",
+            "Maltese",
+            "Polish",
+            "Romanian",
+            "Spanish"
+        ],
+        "Session 017": [
+            "Croatian",
+            "Czech",
+            "Danish",
+            "Dutch",
+            "English",
+            "Estonian",
+            "French",
+            "German",
+            "Greek",
+            "Hungarian",
+            "Irish",
+            "Italian",
+            "Latvian",
+            "Lithuanian",
+            "Maltese",
+            "Polish",
+            "Portuguese",
+            "Romanian",
+            "Slovenian",
+            "Spanish",
+            "Swedish"
+        ],
+        "Session 018": [
+            "Croatian",
+            "Czech",
+            "Dutch",
+            "English",
+            "French",
+            "German",
+            "Greek",
+            "Hungarian",
+            "Irish",
+            "Maltese",
+            "Romanian",
+            "Slovenian",
+            "Spanish"
+        ],
+        "Session 019": [
+            "Czech",
+            "Greek",
+            "Italian",
+            "Polish",
+            "Romanian"
+        ],
+        "Session 020": [
+            "Croatian",
+            "Finnish",
+            "French",
+            "German",
+            "Irish",
+            "Latvian",
+            "Lithuanian",
+            "Portuguese"
+        ],
+        "Session 021": [
+            "Bulgarian",
+            "Estonian",
+            "French",
+            "Maltese",
+            "Slovenian",
+            "Swedish"
+        ],
+        "Session 022": [
+            "Croatian",
+            "Czech",
+            "Danish",
+            "English",
+            "Finnish",
+            "German",
+            "Greek",
+            "Hungarian",
+            "Irish",
+            "Latvian",
+            "Lithuanian",
+            "Maltese",
+            "Polish",
+            "Portuguese",
+            "Romanian",
+            "Slovak",
+            "Slovenian"
+        ],
+        "Session 023": [
+            "Bulgarian",
+            "Croatian",
+            "English",
+            "Finnish",
+            "German",
+            "Greek",
+            "Hungarian",
+            "Irish",
+            "Latvian",
+            "Lithuanian",
+            "Maltese",
+            "Polish",
+            "Portuguese",
+            "Slovak",
+            "Spanish",
+            "Swedish"
+        ],
+        "Session 024": [
+            "Bulgarian",
+            "Croatian",
+            "Czech",
+            "Danish",
+            "French",
+            "German",
+            "Hungarian",
+            "Polish",
+            "Slovak",
+            "Spanish"
+        ],
+        "Session 025": [
+            "Czech",
+            "Dutch",
+            "Estonian",
+            "Hungarian",
+            "Latvian",
+            "Swedish"
+        ],
+        "Session 026": [
+            "Croatian",
+            "English",
+            "Estonian",
+            "French",
+            "German",
+            "Hungarian",
+            "Irish",
+            "Italian",
+            "Latvian",
+            "Lithuanian",
+            "Maltese",
+            "Romanian",
+            "Slovak",
+            "Spanish",
+            "Swedish"
+        ],
+        "Session 027": [
+            "Czech",
+            "Dutch",
+            "French",
+            "German",
+            "Greek",
+            "Italian"
+        ],
+        "Session 028": [
+            "Danish",
+            "Polish",
+            "Slovak",
+            "Slovenian",
+            "Spanish"
+        ],
+        "Session 029": [
+            "Bulgarian",
+            "Czech",
+            "Danish",
+            "Dutch",
+            "English",
+            "Estonian",
+            "Finnish",
+            "French",
+            "Greek",
+            "Hungarian",
+            "Irish",
+            "Italian",
+            "Latvian",
+            "Lithuanian",
+            "Maltese",
+            "Polish",
+            "Portuguese",
+            "Romanian",
+            "Slovenian",
+            "Spanish",
+            "Swedish"
+        ],
+        "Session 030": [
+            "Czech",
+            "Dutch",
+            "French",
+            "Greek",
+            "Hungarian",
+            "Lithuanian",
+            "Portuguese"
+        ],
+        "Session 031": [
+            "Croatian",
+            "Czech",
+            "Dutch",
+            "Estonian",
+            "Finnish",
+            "German",
+            "Greek",
+            "Hungarian",
+            "Irish",
+            "Lithuanian",
+            "Maltese",
+            "Polish",
+            "Portuguese",
+            "Slovak"
+        ],
+        "Session 032": [
+            "Bulgarian",
+            "Croatian",
+            "Czech",
+            "Danish",
+            "Dutch",
+            "English",
+            "Estonian",
+            "Finnish",
+            "French",
+            "German",
+            "Greek",
+            "Hungarian",
+            "Irish",
+            "Italian",
+            "Latvian",
+            "Lithuanian",
+            "Maltese",
+            "Polish",
+            "Portuguese",
+            "Romanian",
+            "Slovak",
+            "Slovenian",
+            "Spanish",
+            "Swedish"
+        ],
+        "Session 033": [
+            "English",
+            "Estonian",
+            "Finnish",
+            "German",
+            "Portuguese",
+            "Romanian",
+            "Slovak"
+        ],
+        "Session 034": [
+            "Danish",
+            "Dutch",
+            "English",
+            "Finnish",
+            "Hungarian",
+            "Italian",
+            "Polish",
+            "Slovak",
+            "Spanish"
+        ],
+        "Session 035": [
+            "Croatian",
+            "Czech",
+            "Danish",
+            "Dutch",
+            "Estonian",
+            "Finnish",
+            "French",
+            "German",
+            "Greek",
+            "Hungarian",
+            "Irish",
+            "Italian",
+            "Latvian",
+            "Lithuanian",
+            "Polish",
+            "Slovak",
+            "Slovenian",
+            "Spanish"
+        ],
+        "Session 036": [
+            "Danish",
+            "Estonian",
+            "French",
+            "German",
+            "Greek",
+            "Hungarian",
+            "Italian",
+            "Latvian",
+            "Maltese",
+            "Romanian",
+            "Slovak",
+            "Slovenian",
+            "Swedish"
+        ],
+        "Session 037": [
+            "Bulgarian",
+            "Czech",
+            "Dutch",
+            "English",
+            "Estonian",
+            "German",
+            "Greek",
+            "Hungarian",
+            "Italian",
+            "Latvian",
+            "Maltese",
+            "Slovak",
+            "Slovenian",
+            "Spanish",
+            "Swedish"
+        ],
+        "Session 038": [
+            "Czech",
+            "English",
+            "German",
+            "Greek",
+            "Maltese",
+            "Polish",
+            "Portuguese",
+            "Spanish"
+        ],
+        "Session 039": [
+            "Croatian",
+            "Czech",
+            "Dutch",
+            "French",
+            "German",
+            "Greek",
+            "Irish",
+            "Italian",
+            "Latvian",
+            "Maltese",
+            "Polish",
+            "Portuguese",
+            "Slovak",
+            "Slovenian",
+            "Swedish"
+        ],
+        "Session 040": [
+            "Danish",
+            "Dutch",
+            "English",
+            "Estonian",
+            "Finnish",
+            "German",
+            "Latvian",
+            "Maltese",
+            "Portuguese",
+            "Slovenian"
+        ]
+    },
+    "Languages_i": {
+        "Interpreter 001": [
+            "English",
+            "German",
+            "Italian",
+            "Romanian",
+            "Spanish",
+            "Swedish"
+        ],
+        "Interpreter 002": [
+            "Dutch",
+            "English",
+            "German",
+            "Polish"
+        ],
+        "Interpreter 003": [
+            "English",
+            "German",
+            "Slovak"
+        ],
+        "Interpreter 004": [
+            "English",
+            "French",
+            "Swedish"
+        ],
+        "Interpreter 005": [
+            "Finnish",
+            "Slovak",
+            "Spanish"
+        ],
+        "Interpreter 006": [
+            "Czech",
+            "German",
+            "Spanish"
+        ],
+        "Interpreter 007": [
+            "English",
+            "Italian"
+        ],
+        "Interpreter 008": [
+            "German",
+            "Polish"
+        ],
+        "Interpreter 009": [
+            "Latvian",
+            "Spanish"
+        ],
+        "Interpreter 010": [
+            "English",
+            "French",
+            "German",
+            "Greek",
+            "Hungarian",
+            "Italian"
+        ],
+        "Interpreter 011": [
+            "English",
+            "Polish"
+        ],
+        "Interpreter 012": [
+            "German",
+            "Polish"
+        ],
+        "Interpreter 013": [
+            "English",
+            "French",
+            "Lithuanian",
+            "Polish",
+            "Portuguese",
+            "Spanish"
+        ],
+        "Interpreter 014": [
+            "Dutch",
+            "English",
+            "French",
+            "German",
+            "Italian",
+            "Spanish"
+        ],
+        "Interpreter 015": [
+            "English",
+            "French",
+            "German",
+            "Greek",
+            "Italian",
+            "Slovak"
+        ],
+        "Interpreter 016": [
+            "English",
+            "Latvian",
+            "Polish"
+        ],
+        "Interpreter 017": [
+            "Czech",
+            "French"
+        ],
+        "Interpreter 018": [
+            "Czech",
+            "English",
+            "Finnish"
+        ],
+        "Interpreter 019": [
+            "English",
+            "French",
+            "Greek",
+            "Italian",
+            "Polish",
+            "Spanish"
+        ],
+        "Interpreter 020": [
+            "English",
+            "German"
+        ],
+        "Interpreter 021": [
+            "Croatian",
+            "Dutch",
+            "Lithuanian"
+        ],
+        "Interpreter 022": [
+            "French",
+            "Italian",
+            "Spanish"
+        ],
+        "Interpreter 023": [
+            "Danish",
+            "English",
+            "Estonian"
+        ],
+        "Interpreter 024": [
+            "English",
+            "French"
+        ],
+        "Interpreter 025": [
+            "German",
+            "Greek",
+            "Lithuanian"
+        ],
+        "Interpreter 026": [
+            "English",
+            "Polish",
+            "Romanian"
+        ],
+        "Interpreter 027": [
+            "German",
+            "Italian"
+        ],
+        "Interpreter 028": [
+            "Dutch",
+            "German"
+        ],
+        "Interpreter 029": [
+            "German",
+            "Italian"
+        ],
+        "Interpreter 030": [
+            "Czech",
+            "Dutch",
+            "Hungarian",
+            "Italian"
+        ],
+        "Interpreter 031": [
+            "English",
+            "French",
+            "Romanian",
+            "Spanish"
+        ],
+        "Interpreter 032": [
+            "French",
+            "Italian"
+        ],
+        "Interpreter 033": [
+            "Dutch",
+            "English",
+            "Finnish",
+            "German",
+            "Greek",
+            "Italian"
+        ],
+        "Interpreter 034": [
+            "English",
+            "French",
+            "German",
+            "Romanian"
+        ],
+        "Interpreter 035": [
+            "French",
+            "German",
+            "Italian",
+            "Spanish"
+        ],
+        "Interpreter 036": [
+            "English",
+            "German"
+        ],
+        "Interpreter 037": [
+            "French",
+            "Spanish"
+        ],
+        "Interpreter 038": [
+            "English",
+            "French",
+            "German",
+            "Polish",
+            "Spanish"
+        ],
+        "Interpreter 039": [
+            "German",
+            "Romanian"
+        ],
+        "Interpreter 040": [
+            "English",
+            "French",
+            "German",
+            "Spanish"
+        ]
+    }
+}
