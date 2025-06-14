@@ -37,7 +37,7 @@ if __name__ == "__main__":
 
     print(f"Objective value: {model.objective_value}")
     print(f"MIP gap: {model.mip_gap:.4%}")
-    print(f"Runtime: {model.runtime:.2f} seconds")
+    print(f"Runtime: {model.runtime:.2f}")
 
 
     if args.plot:
