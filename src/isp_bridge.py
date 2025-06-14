@@ -10,6 +10,8 @@ class ISPBridge:
         self.model = gp.Model("BridgeISP")
         self.model.reset()
 
+        self.objective = objective
+
         self.x = None
         self.y = None
         self.z = None
@@ -24,7 +26,7 @@ class ISPBridge:
             self._add_operational_constraints()
 
         self.model.update()
-        self._add_objective(objective)
+        self._add_objective()
         self.model.update()
 
         self.model._x = self.x
@@ -122,17 +124,16 @@ class ISPBridge:
         # 3: A given interpreter can only cover one translation pair in a session
         for i in interpreters:
             for s in sessions:
+                z_terms = [self.z[i, s, l1, l2] for (i2, s2, l1, l2) in self.z if i2 == i and s2 == s]
+                w_terms = [self.w[i1, i2, s, l1, l2, l_prime]
+                           for (i1, i2, s2, l1, l2, l_prime) in self.w
+                           if s2 == s and (i1 == i or i2 == i)]
                 self.model.addConstr(
-                    quicksum(self.z[i, s, l1, l2] for (i2, s2, l1, l2) in self.z if i2 == i and s2 == s) <= self.x[i, s],
-                    name=f"one_translation_per_session_{i}_{s}"
+                    quicksum(z_terms + w_terms) <= self.x[i, s],
+                    name=f"one_translation_or_bridge_per_session_{i}_{s}"
                 )
 
-        # 4: If an interpreter is not assigned to a session, they cannot be responsible for any language
-        # pair in that session
-        for (i, s, l1, l2) in self.z:
-            self.model.addConstr(self.z[i, s, l1, l2] <= self.x[i, s], name=f"z_impl_x_{i}_{s}_{l1}_{l2}")
-
-        # 5: A language pair is considered covered if at least one interpreter is actively assigned to interpret it
+        # 4: A language pair is considered covered if at least one interpreter is actively assigned to interpret it
         for s in sessions:
             languages = self.instance.languages_per_session[s]
             language_pairs = list(itertools.combinations(languages, 2))
@@ -143,24 +144,14 @@ class ISPBridge:
                     name=f"y_impl_z_{s}_{l1}_{l2}"
                 )
 
-        # 6: A session can only be considered fully covered if all language pairs used in the session are covered
+        # 5: A session can only be considered fully covered if all language pairs used in the session are covered
         for s in sessions:
             languages = self.instance.languages_per_session[s]
             language_pairs = list(itertools.combinations(languages, 2))
             for l1, l2 in language_pairs:
                 self.model.addConstr(self.t[s] <= self.u[s, l1, l2], name=f"t_impl_u_{s}_{l1}_{l2}")
 
-        # 7: Each language pair in a session may be interpreted by at most one interpreter. (logical constraint)
-        for s in sessions:
-            languages = self.instance.languages_per_session[s]
-            for l1, l2 in itertools.combinations(languages, 2):
-                self.model.addConstr(
-                    quicksum(self.z[i, s, l1, l2] for i in interpreters if (i, s, l1, l2) in self.z) <= 1,
-                    name=f"unique_translator_{s}_{l1}_{l2}"
-                )
-
-
-        # 10: A session can be covered by a bridge or directly by interpreters
+        # 8: A session can be covered by a bridge or directly by interpreters
         for s in sessions:
             languages = self.instance.languages_per_session[s]
             language_pairs = list(itertools.combinations(languages, 2))
@@ -173,7 +164,7 @@ class ISPBridge:
                     name=f"u_impl_y_and_w_{s}_{l1}_{l2}"
                 )
 
-        # 11: One interpreter can only participate in one translation pair in a session
+        # 9: One interpreter can only participate in one translation pair in a session
         for i in self.instance.interpreters:
             for s in self.instance.sessions:
                 participations = []
@@ -195,7 +186,7 @@ class ISPBridge:
 
     def _add_operational_constraints(self):
         # === Additional Constraints ===
-        # 8: An interpreter can only be assigned to a maximum of 15 sessions
+        # 6: An interpreter can only be assigned to a maximum of 15 sessions
         interpreters = self.instance.interpreters
         sessions = self.instance.sessions
         blocks = self.instance.blocks
@@ -203,7 +194,7 @@ class ISPBridge:
             self.model.addConstr(quicksum(self.x[i, s] for s in sessions) <= 15,
                                  name=f"max_sessions_per_interpreter_{i}")
 
-        # 9: An interpreter can only be assigned to a maximum of 3 consecutive blocks
+        # 7: An interpreter can only be assigned to a maximum of 3 consecutive blocks
         for i in interpreters:
             for k in range(len(blocks) - 3):
                 group = blocks[k:k + 4]
@@ -213,14 +204,14 @@ class ISPBridge:
                     name=f"max_3_consecutive_blocks_{i}_from_{group[0]}"
                 )
 
-    def _add_objective(self, objective):
+    def _add_objective(self):
         sessions = self.instance.sessions
-        if objective == "OF1":
+        if self.objective == "OF1":
             self.model.setObjective(gp.quicksum(self.u[s, l1, l2] for (s, l1, l2) in self.u.keys()), GRB.MAXIMIZE)
-        elif objective == "OF2":
+        elif self.objective == "OF2":
             self.model.setObjective(quicksum(self.t[s] for s in sessions), GRB.MAXIMIZE)
         else:
-            raise ValueError("Objective function must be either 'OF1' or 'OF2', got: " + objective)
+            raise ValueError("Objective function must be either 'OF1' or 'OF2', got: " + self.objective)
 
     def optimize(self):
         self.model.optimize()
@@ -246,9 +237,29 @@ class ISPBridge:
                 if z[i, s, l1, l2].X > 0.5:
                     print(f"{i} assigned to {s} covers pair ({l1}, {l2}).")
 
+        if self.objective == "OF2":
+            for s in self.instance.sessions:
+                if self.model._t[s].X > 0.5:
+                    print(f"Session {s} is fully covered.")
+
+
     @property
     def runtime(self):
         if not self.is_optimized:
             print("Model has not been optimized yet. Call optimize() first.")
             return None
         return self.model.Runtime
+
+    @property
+    def mip_gap(self):
+        if not self.is_optimized:
+            print("Model has not been optimized yet. Call optimize() first.")
+            return None
+        return self.model.MIPGap
+
+    @property
+    def objective_value(self):
+        if not self.is_optimized:
+            print("Model has not been optimized yet. Call optimize() first.")
+            return None
+        return self.model.ObjVal

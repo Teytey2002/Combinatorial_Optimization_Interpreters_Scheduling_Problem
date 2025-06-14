@@ -99,12 +99,7 @@ class ISP:
                     name=f"one_translation_per_session_{i}_{s}"
                 )
 
-        # 4: If an interpreter is not assigned to a session, they cannot be responsible for any language
-        # pair in that session
-        for (i, s, l1, l2) in self.z:
-            self.model.addConstr(self.z[i, s, l1, l2] <= self.x[i, s], name=f"z_impl_x_{i}_{s}_{l1}_{l2}")
-
-        # 5: A language pair is considered covered if at least one interpreter is actively assigned to interpret it
+        # 4: A language pair is considered covered if at least one interpreter is actively assigned to interpret it
         for s in sessions:
             languages = self.instance.languages_per_session[s]
             language_pairs = list(itertools.combinations(languages, 2))
@@ -114,32 +109,24 @@ class ISP:
                     name=f"y_impl_z_{s}_{l1}_{l2}"
                 )
 
-        # 6: A session can only be considered fully covered if all language pairs used in the session are covered
+        # 5: A session can only be considered fully covered if all language pairs used in the session are covered
         for s in sessions:
             languages = self.instance.languages_per_session[s]
             language_pairs = list(itertools.combinations(languages, 2))
             for l1, l2 in language_pairs:
                 self.model.addConstr(self.t[s] <= self.y[s, l1, l2], name=f"t_impl_y_{s}_{l1}_{l2}")
 
-        # 7: Each language pair in a session may be interpreted by at most one interpreter. (logical constraint)
-        for s in sessions:
-            languages = self.instance.languages_per_session[s]
-            for l1, l2 in itertools.combinations(languages, 2):
-                self.model.addConstr(
-                    quicksum(self.z[i, s, l1, l2] for i in interpreters if (i, s, l1, l2) in self.z) <= 1,
-                    name=f"unique_translator_{s}_{l1}_{l2}"
-                )
 
     def _add_operational_constraints(self):
         # === Additional Constraints ===
-        # 8: An interpreter can only be assigned to a maximum of 15 sessions
+        # 6: An interpreter can only be assigned to a maximum of 15 sessions
         interpreters = self.instance.interpreters
         sessions = self.instance.sessions
         blocks = self.instance.blocks
         for i in interpreters:
             self.model.addConstr(quicksum(self.x[i, s] for s in sessions) <= 15, name=f"max_sessions_per_interpreter_{i}")
 
-        # 9: An interpreter can only be assigned to a maximum of 3 consecutive blocks
+        # 7: An interpreter can only be assigned to a maximum of 3 consecutive blocks
         for i in interpreters:
             for k in range(len(blocks) - 3):
                 group = blocks[k:k + 4]
@@ -183,3 +170,17 @@ class ISP:
             print("Model has not been optimized yet. Call optimize() first.")
             return None
         return self.model.Runtime
+
+    @property
+    def mip_gap(self):
+        if not self.is_optimized:
+            print("Model has not been optimized yet. Call optimize() first.")
+            return None
+        return self.model.MIPGap
+
+    @property
+    def objective_value(self):
+        if not self.is_optimized:
+            print("Model has not been optimized yet. Call optimize() first.")
+            return None
+        return self.model.ObjVal
