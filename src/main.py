@@ -1,5 +1,6 @@
 from argparse import ArgumentParser
 from isp import ISP
+from isp_bridge import ISPBridge
 
 parser = ArgumentParser()
 parser.add_argument("--instance", type=str, default="instances/example.json", help="Path to instance file")
@@ -8,6 +9,7 @@ group.add_argument("--OF1", action="store_true", help="Use objective function OF
 group.add_argument("--OF2", action="store_true", help="Use objective function OF2")
 
 parser.add_argument("--oper-constr", action="store_true", help="Use operational constraints", default=False)
+parser.add_argument("--bridging", action="store_true", help="Use bridging constraints", default=False)
 
 def determine_objective(args):
     if args.OF1:
@@ -20,7 +22,10 @@ def determine_objective(args):
 if __name__ == "__main__":
     args = parser.parse_args()
     objective = determine_objective(args)
-    model = ISP(args.instance, objective, args.oper_constr)
+    if not args.bridging:
+        model = ISP(args.instance, objective, args.oper_constr)
+    else:
+        model = ISPBridge(args.instance, objective, args.oper_constr)
     print("Model is built")
     model.optimize()
 

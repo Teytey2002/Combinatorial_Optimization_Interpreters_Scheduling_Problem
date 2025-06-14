@@ -9,6 +9,7 @@ class Instance:
         self.interpreters = data["Interpreters"]
         self.sessions = data["Sessions"]
         self.blocks = data["Blocks"]
+        self.languages = data["Languages"]
 
         self.languages_per_interpreter = data["Languages_i"]
         self.languages_per_session = data["Languages_s"]
