@@ -1,0 +1,28 @@
+#!/bin/bash
+
+INSTANCES_DIR="../instances"
+OUTPUT_FILE="results.csv"
+
+echo "Instance,Model,Objective,OperationalConstraints,ObjectiveValue,MIPGap,Runtime,Status" > $OUTPUT_FILE
+
+for instance_path in $INSTANCES_DIR/*.json; do
+    instance_name=$(basename "$instance_path")
+    for obj in "OF1" "OF2"; do
+        if [ "$model" == "ISP" ]; then
+            for oper in "" "--oper-constr"; do
+                echo "Running: ISP $obj $oper on $instance_name"
+                python3 main.py --instance "$instance_path" --$obj $oper > tmp_output.txt 2>&1
+
+                STATUS="OK"
+                OBJVAL=$(grep -i "Objective value" tmp_output.txt | awk '{print $NF}')
+                GAP=$(grep -i "MIP gap" tmp_output.txt | awk '{print $NF}')
+                TIME=$(grep -i "Runtime" tmp_output.txt | awk '{print $NF}')
+                [ -z "$OBJVAL" ] && STATUS="FAIL"
+
+                echo "$instance_name,ISP,$obj,${oper:---none--},$OBJVAL,$GAP,$TIME,$STATUS" >> $OUTPUT_FILE
+            done
+        fi
+    done
+done
+
+rm -f tmp_output.txt

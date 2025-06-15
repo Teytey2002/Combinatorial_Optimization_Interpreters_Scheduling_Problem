@@ -1,0 +1,29 @@
+#!/bin/bash
+
+INSTANCES_DIR="../instances"
+OUTPUT_FILE="results.csv"
+
+# echo "Instance,Model,Objective,OperationalConstraints,ObjectiveValue,MIPGap,Runtime,Status" > $OUTPUT_FILE
+
+for instance_path in $INSTANCES_DIR/*.json; do
+    instance_name=$(basename "$instance_path")
+    if [[ "$instance_name" != *I40* && "$instance_name" != *S40-* ]]; then
+        echo "⏭️ Skipping $instance_name (too large)"
+        continue
+    fi
+
+    for obj in "OF1" "OF2"; do
+            echo "Running: ISPBridge $obj --oper-constr on $instance_name"
+            python3 main.py --instance "$instance_path" --$obj --bridging --oper-constr > tmp_output.txt 2>&1
+
+            STATUS="OK"
+            OBJVAL=$(grep -i "Objective value" tmp_output.txt | awk '{print $NF}')
+            GAP=$(grep -i "MIP gap" tmp_output.txt | awk '{print $NF}')
+            TIME=$(grep -i "Runtime" tmp_output.txt | awk '{print $NF}')
+            [ -z "$OBJVAL" ] && STATUS="FAIL"
+
+            echo "$instance_name,ISPBridge,$obj,--oper-constr,$OBJVAL,$GAP,$TIME,$STATUS" >> $OUTPUT_FILE
+    done
+done
+
+rm -f tmp_output.txt
