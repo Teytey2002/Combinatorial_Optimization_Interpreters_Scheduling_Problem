@@ -15,6 +15,21 @@ Install dependencies with:
 pip install -r requirements.txt
 ```
 
+## 📁 Project Structure
+
+- `src/`: Contains the main codebase
+  - `main.py`: Main runner for solving and plotting
+  - `isp.py`: ISP model with direct assignments
+  - `isp_bridge.py`: ISP model with bridge language capabilities
+  - `instance.py`: Parser for JSON instance files
+  - `compare_objectives.py`: Plot coverage ratios between objectives
+  - `run`: Shell script to run the base ISP model on all instances
+  - `run_bridge`: Shell script to run the ISPBridge model on small instances
+  - `results.csv`: Output file containing all the results from the runs
+- `instances/`: Where you should place your JSON instance files
+- `img/`: Contains images for comparison plots (used in the report)
+
+
 ## 🚀 Usage
 
 ```bash
@@ -72,16 +87,6 @@ cd src
 **Output:**
 Appends results to the same `results.csv` file.
 
-## 🧪 Examples
-
-```bash
-# Solve using OF1, operational constraints, and plot results
-python main.py --instance instances/isp-S40-I40.json --OF1 --oper-constr --plot
-
-# Solve using bridge model
-python main.py --instance instances/isp-S40-I40.json --OF1 --oper-constr --bridging --plot
-```
-
 ## 📈 Comparing Objectives
 
 A separate script allows graphical comparison of coverage ratios between:
@@ -89,11 +94,3 @@ A separate script allows graphical comparison of coverage ratios between:
 - OF1 and OF1 with bridging
 
 This is useful for analyzing the efficiency and impact of modeling choices.
-
-## 📁 Project Structure
-
-- `main.py`: Main runner for solving and plotting
-- `isp.py`: ISP model with direct assignments
-- `isp_bridge.py`: ISP model with bridge language capabilities
-- `instance.py`: Parser for JSON instance files
-- `compare_objectives.py`: Plot coverage ratios between objectives
